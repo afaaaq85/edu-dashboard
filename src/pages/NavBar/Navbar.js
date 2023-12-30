@@ -12,6 +12,15 @@ import {
 } from "../../components/Icons/MUIcons";
 
 const Navbar = () => {
+
+  const [isActive, setIsActive] = useState('');
+
+  const handleMenuOptionClick = (name) => {
+    setIsActive(name);
+    console.log('called');
+    
+  }
+
   return (
     <aside>
       <div class="top">
@@ -27,32 +36,32 @@ const Navbar = () => {
       </div>
 
       <div class="sidebar">
-        <Link to="/" class="active">
+        <Link to="/" className={isActive==='dashboard' ? "active" : ""}  onClick={()=>handleMenuOptionClick('dashboard')} >
           <span class="material-icons-sharp">
             <DashboardIcon />
           </span>
           <h3>Dashboard</h3>
         </Link>
-        <Link to="/quizes">
+        <Link to="/quizes" className={isActive==='quizes' ? "active" : ""}  onClick={()=>handleMenuOptionClick('quizes')}>
           <span class="material-icons-sharp">
             <QuizIcon />
           </span>
           <h3>Quizes</h3>
         </Link>
-        <Link to="/mocktests">
+        <Link to="/mocktests" className={isActive==='mocktests' ? "active" : ""} onClick={()=>handleMenuOptionClick('mocktests')}>
           <span class="material-icons-sharp">
             <MockTestsIcon />
           </span>
           <h3>Mock Tests</h3>
         </Link>
-        <Link to="/performance">
+        <Link to="/performance" className={isActive==='performance' ? "active" : ""} onClick={()=>handleMenuOptionClick('performance')}>
           <span class="material-icons-sharp">
             <PerformanceIcon />
           </span>
           <h3>Performace</h3>
           <span class="message-count">16</span>
         </Link>
-        <Link to="/learning">
+        <Link to="/learning" className={isActive==='learning' ? "active" : ""} onClick={()=>handleMenuOptionClick('learning')}>
           <span class="material-icons-sharp">
             <LearningIcon />
           </span>
