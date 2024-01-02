@@ -1,5 +1,6 @@
 import "./Navbar.css";
-import{ useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import {
   DashboardIcon,
@@ -7,7 +8,7 @@ import {
   MockTestsIcon,
   PerformanceIcon,
   LearningIcon,
-  LogoutIcon
+  LogoutIcon,
 } from "../../components/Icons/MUIcons";
 
 const Navbar = () => {
@@ -26,31 +27,43 @@ const Navbar = () => {
       </div>
 
       <div class="sidebar">
-        <a href="#none" class="active">
-          <span class="material-icons-sharp"><DashboardIcon/></span>
+        <Link to="/" class="active">
+          <span class="material-icons-sharp">
+            <DashboardIcon />
+          </span>
           <h3>Dashboard</h3>
-        </a>
-        <a href="#none">
-          <span class="material-icons-sharp"><QuizIcon/></span>
+        </Link>
+        <Link to="/quizes">
+          <span class="material-icons-sharp">
+            <QuizIcon />
+          </span>
           <h3>Quizes</h3>
-        </a>
-        <a href="#none">
-          <span class="material-icons-sharp"><MockTestsIcon/></span>
+        </Link>
+        <Link to="/mocktests">
+          <span class="material-icons-sharp">
+            <MockTestsIcon />
+          </span>
           <h3>Mock Tests</h3>
-        </a>
-        <a href="#none">
-          <span class="material-icons-sharp"><PerformanceIcon/></span>
+        </Link>
+        <Link to="/performance">
+          <span class="material-icons-sharp">
+            <PerformanceIcon />
+          </span>
           <h3>Performace</h3>
           <span class="message-count">16</span>
-        </a>
-        <a href="#none">
-          <span class="material-icons-sharp"><LearningIcon/></span>
+        </Link>
+        <Link to="/learning">
+          <span class="material-icons-sharp">
+            <LearningIcon />
+          </span>
           <h3>Learning</h3>
-        </a>
-        <a href="#none">
-          <span class="material-icons-sharp"><LogoutIcon/></span>
+        </Link>
+        <Link to="/signout">
+          <span class="material-icons-sharp">
+            <LogoutIcon />
+          </span>
           <h3>Logout</h3>
-        </a>
+        </Link>
       </div>
     </aside>
   );

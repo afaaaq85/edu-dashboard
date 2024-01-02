@@ -160,7 +160,7 @@ const Homepage = () => {
         <div class="sales-analytics">
           <h2>Sales Analytics</h2>
           <div class="item online">
-            <div>
+            <div class="icon">
             <img src={cart} alt="cart" className="home-charts-img"/>
             </div>
             <div class="right">
@@ -173,7 +173,7 @@ const Homepage = () => {
             </div>
           </div>
           <div class="item offline">
-            <div>
+            <div class="icon">
             <img src={bag} alt="bag" className="home-charts-img"/>
             </div>
             <div class="right">
@@ -186,7 +186,7 @@ const Homepage = () => {
             </div>
           </div>
           <div class="item customers">
-            <div>
+            <div class="icon">
             <img src={person} alt="person" className="home-charts-img"/>
             </div>
             <div class="right">
