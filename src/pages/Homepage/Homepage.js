@@ -6,6 +6,9 @@ import profile1 from "../../assets/profile-1.jpg"
 import profile2 from "../../assets/profile-2.jpg"
 import profile3 from "../../assets/profile-3.jpg"
 import profile4 from "../../assets/profile-4.jpg"
+import person from "../../assets/person.png"
+import cart from "../../assets/cart.png"
+import bag from "../../assets/bag.png"
 import "./Homepage.css";
 
 const Homepage = () => {
@@ -157,8 +160,8 @@ const Homepage = () => {
         <div class="sales-analytics">
           <h2>Sales Analytics</h2>
           <div class="item online">
-            <div class="icon">
-              <span class="material-icons-sharp">shopping_cart</span>
+            <div>
+            <img src={cart} alt="cart" className="home-charts-img"/>
             </div>
             <div class="right">
               <div class="info">
@@ -170,8 +173,8 @@ const Homepage = () => {
             </div>
           </div>
           <div class="item offline">
-            <div class="icon">
-              <span class="material-icons-sharp">local_mall</span>
+            <div>
+            <img src={bag} alt="bag" className="home-charts-img"/>
             </div>
             <div class="right">
               <div class="info">
@@ -183,8 +186,8 @@ const Homepage = () => {
             </div>
           </div>
           <div class="item customers">
-            <div class="icon">
-              <span class="material-icons-sharp">person</span>
+            <div>
+            <img src={person} alt="person" className="home-charts-img"/>
             </div>
             <div class="right">
               <div class="info">
