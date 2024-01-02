@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import {
@@ -9,59 +9,100 @@ import {
   PerformanceIcon,
   LearningIcon,
   LogoutIcon,
+  MenuIcon as HamMenuIcon,
+  MenuIcon,
 } from "../../components/Icons/MUIcons";
 
 const Navbar = () => {
-
-  const [isActive, setIsActive] = useState('');
+  const [isActive, setIsActive] = useState("");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const handleMenuOptionClick = (name) => {
     setIsActive(name);
-    console.log('called');
-    
-  }
+  };
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (window.innerWidth < 768) {
+        setShowSidebar(false);
+      } else {
+        setShowSidebar(true);
+      }
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
 
   return (
     <aside>
       <div class="top">
         <div class="logo">
           <img src={logo} alt="logo" />
-          <h2 cla>
+          <h2>
             EDU<span class="primary2 global-small">Global</span>
           </h2>
         </div>
-        <div class="close" id="close-btn">
-          <span class="material-icons-sharp">close</span>
-        </div>
       </div>
-
-      <div class="sidebar">
-        <Link to="/" className={isActive==='dashboard' ? "active" : ""}  onClick={()=>handleMenuOptionClick('dashboard')} >
+      <div className="burger-menu">
+        <MenuIcon fontSize='large'/>
+      </div>
+      <div className="sidebar">
+        <Link
+          to="/"
+          className={isActive === "dashboard" ? "active" : ""}
+          onClick={() => handleMenuOptionClick("dashboard")}
+        >
           <span class="material-icons-sharp">
             <DashboardIcon />
           </span>
           <h3>Dashboard</h3>
         </Link>
-        <Link to="/quizes" className={isActive==='quizes' ? "active" : ""}  onClick={()=>handleMenuOptionClick('quizes')}>
+        <Link
+          to="/quizes"
+          className={isActive === "quizes" ? "active" : ""}
+          onClick={() => handleMenuOptionClick("quizes")}
+        >
           <span class="material-icons-sharp">
             <QuizIcon />
           </span>
           <h3>Quizes</h3>
         </Link>
-        <Link to="/mocktests" className={isActive==='mocktests' ? "active" : ""} onClick={()=>handleMenuOptionClick('mocktests')}>
+        <Link
+          to="/mocktests"
+          className={isActive === "mocktests" ? "active" : ""}
+          onClick={() => handleMenuOptionClick("mocktests")}
+        >
           <span class="material-icons-sharp">
             <MockTestsIcon />
           </span>
           <h3>Mock Tests</h3>
         </Link>
-        <Link to="/performance" className={isActive==='performance' ? "active" : ""} onClick={()=>handleMenuOptionClick('performance')}>
+        <Link
+          to="/performance"
+          className={isActive === "performance" ? "active" : ""}
+          onClick={() => handleMenuOptionClick("performance")}
+        >
           <span class="material-icons-sharp">
             <PerformanceIcon />
           </span>
           <h3>Performace</h3>
           <span class="message-count">16</span>
         </Link>
-        <Link to="/learning" className={isActive==='learning' ? "active" : ""} onClick={()=>handleMenuOptionClick('learning')}>
+        <Link
+          to="/learning"
+          className={isActive === "learning" ? "active" : ""}
+          onClick={() => handleMenuOptionClick("learning")}
+        >
           <span class="material-icons-sharp">
             <LearningIcon />
           </span>

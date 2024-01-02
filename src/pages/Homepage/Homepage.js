@@ -2,13 +2,12 @@ import React from "react";
 import Analytics from "../../assets/analytics.png";
 import Chart1 from "../../assets/chart1.png";
 import Chart2 from "../../assets/chart2.png";
-import profile1 from "../../assets/profile-1.jpg"
-import profile2 from "../../assets/profile-2.jpg"
-import profile3 from "../../assets/profile-3.jpg"
-import profile4 from "../../assets/profile-4.jpg"
-import person from "../../assets/person.png"
-import cart from "../../assets/cart.png"
-import bag from "../../assets/bag.png"
+import profile1 from "../../assets/profile-1.jpg";
+import person from "../../assets/person.png";
+import cart from "../../assets/cart.png";
+import bag from "../../assets/bag.png";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 import "./Homepage.css";
 
 const Homepage = () => {
@@ -24,16 +23,11 @@ const Homepage = () => {
             <img src={Analytics} alt="img1" className="home-charts-img" />
             <div class="middle">
               <div class="left">
-                <h3>Total Sales</h3>
-                <h1>$25,024</h1>
+                <h3>Total Quizes</h3>
+                <h1>05/20</h1>
               </div>
               <div class="progress">
-                <svg>
-                  <circle cx="38" cy="38" r="36"></circle>
-                </svg>
-                <div class="number">
-                  <p>81%</p>
-                </div>
+                <CircularProgressbar value={66} text="66%" />
               </div>
             </div>
             <small class="text-muted">Last 24 Hours</small>
@@ -42,16 +36,11 @@ const Homepage = () => {
             <img src={Chart1} alt="img2" className="home-charts-img" />
             <div class="middle">
               <div class="left">
-                <h3>Total Expenses</h3>
-                <h1>$14,160</h1>
+                <h3>Net Score</h3>
+                <h1>366</h1>
               </div>
               <div class="progress">
-                <svg>
-                  <circle cx="38" cy="38" r="36"></circle>
-                </svg>
-                <div class="number">
-                  <p>62%</p>
-                </div>
+                <CircularProgressbar value={33} text="33%" />
               </div>
             </div>
             <small class="text-muted">Last 24 Hours</small>
@@ -60,16 +49,11 @@ const Homepage = () => {
             <img src={Chart2} alt="img2" className="home-charts-img" />
             <div class="middle">
               <div class="left">
-                <h3>Total Income</h3>
-                <h1>$10,864</h1>
+                <h3>Questions solved</h3>
+                <h1>50/500</h1>
               </div>
               <div class="progress">
-                <svg>
-                  <circle cx="38" cy="38" r="36"></circle>
-                </svg>
-                <div class="number">
-                  <p>44%</p>
-                </div>
+                <CircularProgressbar value={10} text="10%" />
               </div>
             </div>
             <small class="text-muted">Last 24 Hours</small>
@@ -123,33 +107,33 @@ const Homepage = () => {
           <div class="updates">
             <div class="update">
               <div class="profile-photo">
-                <img src={profile2} alt="profile-2" />
+                <img src={person} alt="profile-2" />
               </div>
               <div class="message">
                 <p>
-                  <b>Mike Tyson</b> received his order of Night lion tech GPS drone.
+                  <b>Rafay</b> completed Mock test 2 successfully.
                 </p>
                 <small class="text-muted">2 Minutes Ago</small>
               </div>
             </div>
             <div class="update">
               <div class="profile-photo">
-                <img src={profile3} alt="profile-3" />
+                <img src={person} alt="profile-3" />
               </div>
               <div class="message">
                 <p>
-                  <b>Mike Tyson</b> received his order of Night lion tech GPS drone.
+                  <b>Yousaf</b> has completed Quiz 01.
                 </p>
                 <small class="text-muted">2 Minutes Ago</small>
               </div>
             </div>
             <div class="update">
               <div class="profile-photo">
-                <img src={profile4} alt="profile-img" />
+                <img src={person} alt="profile-img" />
               </div>
               <div class="message">
                 <p>
-                  <b>Mike Tyson</b> received his order of Night lion tech GPS drone.
+                  <b>Afaq</b> has received 100 points for Quiz 03.
                 </p>
                 <small class="text-muted">2 Minutes Ago</small>
               </div>
@@ -161,7 +145,7 @@ const Homepage = () => {
           <h2>Sales Analytics</h2>
           <div class="item online">
             <div class="icon">
-            <img src={cart} alt="cart" className="home-charts-img"/>
+              <img src={cart} alt="cart" className="home-charts-img" />
             </div>
             <div class="right">
               <div class="info">
@@ -174,7 +158,7 @@ const Homepage = () => {
           </div>
           <div class="item offline">
             <div class="icon">
-            <img src={bag} alt="bag" className="home-charts-img"/>
+              <img src={bag} alt="bag" className="home-charts-img" />
             </div>
             <div class="right">
               <div class="info">
@@ -187,7 +171,7 @@ const Homepage = () => {
           </div>
           <div class="item customers">
             <div class="icon">
-            <img src={person} alt="person" className="home-charts-img"/>
+              <img src={person} alt="person" className="home-charts-img" />
             </div>
             <div class="right">
               <div class="info">
