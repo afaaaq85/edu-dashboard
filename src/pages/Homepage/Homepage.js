@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Analytics from "../../assets/analytics.png";
 import Chart1 from "../../assets/chart1.png";
 import Chart2 from "../../assets/chart2.png";
@@ -6,17 +6,43 @@ import profile1 from "../../assets/profile-1.jpg";
 import person from "../../assets/person.png";
 import cart from "../../assets/cart.png";
 import bag from "../../assets/bag.png";
-import { CircularProgressbar } from "react-circular-progressbar";
+import update from "../../assets/update.png";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./Homepage.css";
 
 const Homepage = () => {
+  const [date, setDate] = useState("");
+
+  useEffect(() => {
+    // Function to get today's date in YYYY-MM-DD format
+    const getTodayDate = () => {
+      const today = new Date();
+      const year = today.getFullYear();
+      let month = today.getMonth() + 1;
+      let day = today.getDate();
+
+      // Ensure leading zero for months/days less than 10
+      if (month < 10) {
+        month = `0${month}`;
+      }
+      if (day < 10) {
+        day = `0${day}`;
+      }
+
+      return `${year}-${month}-${day}`;
+    };
+
+    // Set the default value to today's date
+    setDate(getTodayDate());
+  }, []); // Run this effect only once on component mount
+
   return (
     <>
       <main>
         <h1>Dashoard</h1>
         <div class="date">
-          <input type="date" />
+          <input type="date" value={date} disabled />
         </div>
         <div class="insights">
           <div class="sales">
@@ -40,7 +66,11 @@ const Homepage = () => {
                 <h1>366</h1>
               </div>
               <div class="progress">
-                <CircularProgressbar value={33} text="33%" />
+                <CircularProgressbar
+                  value={33}
+                  text="33%"
+                  styles={buildStyles({ pathColor: "magenta" })}
+                />
               </div>
             </div>
             <small class="text-muted">Last 24 Hours</small>
@@ -90,15 +120,10 @@ const Homepage = () => {
       <div class="right">
         <div class="top">
           <div class="profile">
-            <div class="info">
               <p>
-                Hey, <b>Daniel</b>
+                Hey,<br/><b>Daniel</b>
               </p>
-              <small class="text-muted">Admin</small>
-            </div>
-            <div class="profile-photo">
-              <img src={profile1} alt="profile-1" />
-            </div>
+              <img src={profile1}></img>
           </div>
         </div>
         {/* <!-- END OF TOP --> */}
@@ -107,7 +132,7 @@ const Homepage = () => {
           <div class="updates">
             <div class="update">
               <div class="profile-photo">
-                <img src={person} alt="profile-2" />
+                <img src={update} alt="update" />
               </div>
               <div class="message">
                 <p>
@@ -118,22 +143,22 @@ const Homepage = () => {
             </div>
             <div class="update">
               <div class="profile-photo">
-                <img src={person} alt="profile-3" />
+                <img src={update} alt="update" />
               </div>
               <div class="message">
                 <p>
-                  <b>Yousaf</b> has completed Quiz 01.
+                  <b>Points</b> are added to your dashboard.
                 </p>
                 <small class="text-muted">2 Minutes Ago</small>
               </div>
             </div>
             <div class="update">
               <div class="profile-photo">
-                <img src={person} alt="profile-img" />
+                <img src={update} alt="update" />
               </div>
               <div class="message">
                 <p>
-                  <b>Afaq</b> has received 100 points for Quiz 03.
+                  <b>Quiz 02</b> result has been updated.
                 </p>
                 <small class="text-muted">2 Minutes Ago</small>
               </div>
@@ -142,15 +167,15 @@ const Homepage = () => {
         </div>
         {/* <!----------------- END OF RECENT UPDATES --------------------> */}
         <div class="sales-analytics">
-          <h2>Sales Analytics</h2>
+          <h2>Other Analytics</h2>
           <div class="item online">
             <div class="icon">
               <img src={cart} alt="cart" className="home-charts-img" />
             </div>
             <div class="right">
               <div class="info">
-                <h3>ONLINE ORDERS</h3>
-                <small class="text-muted">Last 24 Hours</small>
+                <h3>Speaking</h3>
+                <small class="text-muted">Last 30 days</small>
               </div>
               <h5 class="success">+39%</h5>
               <h3>3849</h3>
@@ -162,7 +187,7 @@ const Homepage = () => {
             </div>
             <div class="right">
               <div class="info">
-                <h3>OFFLINE ORDERS</h3>
+                <h3>Listening</h3>
                 <small class="text-muted">Last 24 Hours</small>
               </div>
               <h5 class="danger">-17%</h5>
@@ -175,7 +200,7 @@ const Homepage = () => {
             </div>
             <div class="right">
               <div class="info">
-                <h3>NEW CUSTOMERS</h3>
+                <h3>Writing</h3>
                 <small class="text-muted">Last 24 Hours</small>
               </div>
               <h5 class="success">+25%</h5>
@@ -184,8 +209,7 @@ const Homepage = () => {
           </div>
           <div class="item add-product">
             <div>
-              <span class="material-icons-sharp">add</span>
-              <h3>Add Product</h3>
+              <h3>View Details</h3>
             </div>
           </div>
         </div>
