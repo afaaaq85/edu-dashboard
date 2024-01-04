@@ -40,12 +40,7 @@ const Navbar = () => {
     };
   }, []);
 
-  const [state, setState] = useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+  const [state, setState] = useState({ left: false });
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
@@ -88,7 +83,7 @@ const Navbar = () => {
             <span class="material-icons-sharp">
               <QuizIcon />
             </span>
-            <h3>Quizes</h3>
+            <h3>Practice</h3>
           </Link>
           <Link
             to="/mocktests"
@@ -173,7 +168,7 @@ const Navbar = () => {
             <span class="material-icons-sharp">
               <QuizIcon />
             </span>
-            <h3>Quizes</h3>
+            <h3>Practice</h3>
           </Link>
           <Link
             to="/mocktests"
@@ -206,7 +201,7 @@ const Navbar = () => {
             </span>
             <h3>Learning</h3>
           </Link>
-          <Link to="/signout">
+          <Link to="/">
             <span class="material-icons-sharp">
               <LogoutIcon />
             </span>

@@ -103,6 +103,7 @@ aside h3 {
     display: block;
     height: 60px;
     padding: 10px;
+    z-index: 999;
   }
 .sidebar{
   height: 90vh;
